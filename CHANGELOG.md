@@ -4,6 +4,7 @@
 - 修复：`safe` 策略通过 context_aware Bot 记录 ID、响应时间和会话级响应序号确认目标仍是最后一条后再删除，避免并发新回复或同内容新回复被误删。
 - 修复：补充 deferred cleanup，覆盖撤回发生在 context_aware 已记录 Bot 回复但低优先级标记钩子尚未执行的竞态窗口。
 - 测试：新增并发新回复、同内容新回复、旧匹配记录和低优先级标记竞态回归测试。
+- 元数据：补充 `display_name`、`short_desc`、明确 AstrBot `>=4.20.0,<5.0.0` 兼容范围，并说明无额外 Python 第三方依赖。
 
 ## v2.1.2 - 2026-05-23
 - 优化：context_aware Bot 回复清理默认改为 `safe` 策略，只在确认本次 LLM 响应对应的 context_aware Bot 记录仍是最后一条时删除，避免误删同会话旧回复或并发新回复。

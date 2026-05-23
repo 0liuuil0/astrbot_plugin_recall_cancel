@@ -3,6 +3,8 @@
 > **作者**: 木有知  
 > **仓库**: [https://github.com/muyouzhi6/astrbot_plugin_recall_cancel](https://github.com/muyouzhi6/astrbot_plugin_recall_cancel)  
 > **版本**: v2.1.3
+> **AstrBot**: `>=4.20.0,<5.0.0`（已按 v4.25.1 核对）
+> **依赖**: 无额外 Python 第三方依赖；可选联动 `astrbot_plugin_context_aware >=2.5.1`
 > **标签**: 消息管理 | 撤回处理 | LLM控制 | 用户体验 | 自动化
 
 ## 📋 功能说明
@@ -42,6 +44,15 @@
 | QQ (OneBot V11/NapCat) | ✅ 支持 | 完整支持群聊和私聊撤回检测 |
 | Telegram | ❌ 不支持 | Telegram 撤回消息后无法获得原消息 ID |
 | QQ 官方 | ❌ 不支持 | 官方 API 暂不提供撤回事件通知 |
+
+## 📦 兼容性与依赖
+
+| 项目 | 要求 | 说明 |
+|------|------|------|
+| AstrBot | `>=4.20.0,<5.0.0` | 依赖 AstrBot 4.20+ 的插件注册行为和 Agent 停止链路；已按 AstrBot v4.25.1 核对 |
+| Python 依赖 | 无额外第三方包 | 仅使用 AstrBot 已提供的运行时 API 和 Python 标准库 |
+| 平台适配器 | `aiocqhttp` | 面向 OneBot V11 / NapCat 的撤回 notice |
+| 可选插件 | `astrbot_plugin_context_aware >=2.5.1` | 安装后可同步清理撤回消息和安全清理对应 Bot 回复 |
 
 ## 🔗 context_aware 插件联动
 
@@ -153,6 +164,7 @@ RecalledMessage:  # 已撤回的消息
 ### v2.1.3 (2026-05-23)
 - 🛡️ **并发安全清理**：`safe` 策略通过 Bot 记录 ID、响应时间和会话级响应序号复核目标仍是最后一条后再删除
 - 🧪 **竞态测试补齐**：覆盖并发新回复、同内容新回复、context_aware 已记录但低优先级钩子未执行等场景
+- 📦 **元数据补齐**：补充插件展示名、短描述、AstrBot 兼容范围和依赖说明
 
 ### v2.1.2 (2026-05-23)
 - 🛡️ **安全清理**：默认使用 `safe` 策略清理 context_aware Bot 回复，避免误删最近的不相关回复
