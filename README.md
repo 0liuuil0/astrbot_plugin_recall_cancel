@@ -11,7 +11,7 @@
 
 当用户撤回触发 LLM 回应的消息时，如果 LLM 的回复还没发送出去，插件会自动取消发送。
 
-## v2.1.4 - 2026-07-30
+**v2.1.4更新**
 - 修复：适配 AstrBot v4.26.5，修复 `after_message_sent`、`on_decorating_result` 和 `on_llm_request` 钩子函数签名变更导致的 `TypeError` 报错。
 - 贡献者：@0liuuil0 提交此PR
 
